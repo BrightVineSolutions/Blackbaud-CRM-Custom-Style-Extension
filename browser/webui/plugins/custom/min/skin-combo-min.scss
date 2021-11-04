@@ -1,0 +1,1985 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+@mixin l-gradient($direction, $list) {
+  background: -webkit-linear-gradient($direction, $list) !important;
+  background: -moz-linear-gradient($direction, $list) !important;
+  background: -o-linear-gradient($direction, $list) !important;
+  background: linear-gradient($direction, $list) !important;
+}
+@mixin r-gradient($list){
+  background: -webkit-radial-gradient(center, ellipse cover, $list) !important;
+  background: -moz-radial-gradient(center, ellipse cover, $list) !important;
+  background: -o-radial-gradient(center, ellipse cover, $list) !important;
+  background: radial-gradient(ellipse at center, $list) !important;
+}
+
+/* colour scheme */
+$black: #222;
+$white: #fff;
+$dark-grey: #4d5259;
+$mid-grey: tint($dark-grey, 60%);
+$light-grey: tint($dark-grey, 80%);
+$lightest-grey: tint($dark-grey, 92%);
+
+$primary: #71bf43; //71bf43
+$secondary: #00b4f1; //00b4f1
+
+$gradient-mid: #31b986; //31b986
+
+$tertiary-purple: #A57FA6;
+$tertiary-blue: #69F;
+$tertiary-green: #BFE498;
+$tertiary-yellow: #FC3;
+$tertiary-orange: #F58025;
+$tertiary-red: #F00;
+
+$tertiary-purple: #936daf;
+$tertiary-blue: #1870b8;
+$tertiary-green: #00b795;
+$tertiary-yellow: #fbb034;
+$tertiary-orange: #f47521;
+$tertiary-red: #ef4044;
+
+$font-family: 'Open Sans', sans-serif !important;
+//$font-family: Roboto, sans-serif !important;
+
+/* settings */
+$radius: 4px;
+
+/* main styles */
+* {
+  font-family: $font-family;
+}
+body {
+    opacity: 1 !important;
+}
+html, body {
+  min-height: 100vh;
+  position: relative;
+}
+
+
+.bbui-forms-summarytile-headerlinkcontainer a {
+  color: $dark-grey !important;
+  font-size: 12px;
+}
+
+.bbui-pages-header-title {
+  @include l-gradient(left, ($primary 0%, $gradient-mid 50%, $secondary 100%));
+  height: auto !important;
+}
+
+.bbui-skin-webshell .bbui-forms-summarytile {
+  background: none;
+  overflow: hidden;
+  position: relative !important;
+  margin-left: -6px;
+  margin-right: 12px;
+  margin-top: 12px;
+  .bbui-forms-summarytile-caption {
+    color: $dark-grey;
+    font-weight: normal;
+  }
+}
+.bbui-skin-webshell .bbui-pages-tab-expandbutton, .bbui-skin-webshell .bbui-pages-tab-collapsebutton {
+    font-size: 13px;
+    color: $primary;
+}
+.bbui-forms-summarytile-headerlinkcontainer {
+  a {
+    color: $primary;
+    &:active, &:visited {
+      color: $primary;
+    }
+  }
+  .bbui-linkbutton {
+    color: $primary;
+    &:focus {
+      color: $primary;
+    }
+    &.bbui-pages-task-link {
+      color: $dark-grey;
+      &:focus, &:hover {
+        color:$dark-grey;
+      }
+    }
+  }
+}
+.x-panel-header {
+    background: #EEE;
+}
+
+.bbui-skin-webshell {
+  .bbui-forms-summarytile {
+    div.bbui-forms-summarytile-headerlinkcontainer {
+      margin-bottom: 8px;
+      padding: 2px 6px;
+    }
+    &:before {
+      content: "";
+      background: $lightest-grey;
+      height: 20px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+    }
+    .bbui-forms-summarytile-headerlinkcontainer, .bbui-forms-summarytile-headerlinkcontainer a {
+      color: $dark-grey !important;
+      font-weight: bold;
+    }
+  }
+
+  .bbui-pages-maincontainer .x-column-inner  .bbui-pages-actionpanel a {
+    color: $white !important;
+    &:visited, &:focus {
+      color: $white !important;
+    }
+  }
+
+  .bbui-pages-actionbar-actioncontainer {
+    background: $light-grey;
+    box-shadow: none;
+    .x-panel-header-text {
+      color: $dark-grey;
+      font-size: 16px;
+      font-weight: 300;
+    }
+    .bbui-pages-actionpanel-items {
+      a {
+        color: $dark-grey !important;
+        &:hover, &:focus {
+          color: $dark-grey !important;
+        }
+      }
+      button {
+        color: $dark-grey;
+        &:hover, &:focus {
+          color: $dark-grey;
+        }
+      }
+      span {
+        color: $dark-grey;
+      }
+    }
+  }
+  .bbui-pages-actiongroup-header {
+    color: $secondary;
+    font-size: 20px;
+    margin-bottom: 5px;
+    // @include l-gradient(left, ($secondary 0%, tint($secondary,40%) 100%));
+    // -webkit-background-clip: text !important;
+    // -webkit-text-fill-color: transparent;
+  }
+  .bbui-pages-actiongroup-separator {
+    display: none !important;
+  }
+  .bbui-pages-actionpanel > .x-panel-header {
+    color: $light-grey;
+    border: 0;
+    font-size: 16px;
+    font-weight: normal;
+    border-bottom: 1px solid tint($dark-grey, 10%);
+    display: block;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .bbui-pages-header .x-toolbar .xtb-sep {
+    background: $black;
+    width: 0px;
+    height: 24px;
+  }
+  .bbui-pages-header .x-toolbar button.x-btn-text {
+    font-size: 15px !important;
+    height: auto;
+    padding: 5px 5px 5px 10px;
+    &.x-toolbar-more-icon {
+        padding-right: 0 !important;
+    }
+  }
+    .x-toolbar-layout-ct .x-btn.x-btn-focus button {
+        outline: 1px dotted $dark-grey !important;
+    }
+  .bbui-pages-header {
+    .x-btn-mc em.x-btn-split {
+      padding-right: 10px;
+    }
+  }
+  .bbui-pages-header-left {
+    padding-left: 20px;
+  }
+  .bbui-pages.header-right {
+    display: flex;
+    align-items: center;
+  }
+  .bbui-pages-actionbar-actioncontainer .bbui-pages-actionpanel .bbui-linkbutton div {
+      color: $dark-grey;
+  }
+  .bbui-pages-actionpanel .bbui-linkbutton div {
+      color: $white;
+  }
+  .bbui-pages-maincontainer .x-column-inner {
+    .x-column {
+      z-index: 2;
+      position: relative;
+    }
+    background-image: none;
+  }
+  .bbui-pages-contentcontainer {
+    background-image: none;
+  }
+  .bbui-pages-actionbar-wrapperpanel .x-column-inner {
+    color: $white;
+  }
+  .bbui-pages-maincontainer {
+    background-image: none;
+    .x-column-inner:before {
+      content: "";
+      display: block;
+      width: 185px;
+      height: 1000vh;
+      background: $dark-grey;
+      z-index: 1;
+      position: absolute;
+    }
+  }
+  .bbui-pages-navbar-moremenu {
+      background: $secondary;
+      border-color:  $secondary;
+  }
+  .bbui-pages-navbar {
+
+    margin-left: 0;
+    .x-btn-over {
+      .x-btn-bl, .x-btn-br, .x-btn-bc {
+        background: none;
+      }
+    }
+    .x-btn-menu-active {
+      .x-btn-bl, .x-btn-br, .x-btn-bc {
+        background: none;
+      }
+    }
+    .x-btn-over, .x-btn-menu-active {
+      background: $dark-grey;
+    }
+    background: $black;
+  }
+  .bbui-pages-navbarcontainer {
+    background:  $black;
+  }
+  .bbui-pages-navbar-item {
+    &.x-btn-over .x-btn-mc em.x-btn-split, &.x-btn-menu-active .x-btn-mc em.x-btn-split {
+      background-image: url(./../../../../bbui/assets/skins/webshell/images/s-arrow-noline-white.gif);
+    }
+    &.x-btn-over button, &.x-btn-menu-active button {
+      color: $white;
+    }
+  }
+  .bbui-pages-navbar-taskgroupheader {
+    color: $secondary;
+    border-bottom: none;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: normal;
+  }
+  .bbui-pages-section-container .x-toolbar-cell > .bbui-pages-section-tbarcaption-detail {
+    color: $dark-grey;
+  }
+  .bbui-pages-section-container-contents {
+    z-index: 3;
+    position: relative;
+  }
+  a {
+    color: $primary;
+    &:active, &:visited {
+      color: $primary;
+    }
+  }
+  .bbui-linkbutton {
+    font-size: 13px;
+    color: $dark-grey;
+    &:focus {
+      color: $dark-grey;
+    }
+  }
+}
+
+.bbui-pages-contentcontainer a {
+  color: $primary;
+  &:active, &:focus {
+    color: $primary;
+  }
+}
+
+.bbui-skin-webshell {
+  .bbui-forms-fieldset-row .x-btn button {
+    font-size: 12px;
+    margin: 0;
+  }
+  .x-btn button {
+    font-size: .9rem;
+    margin: .3rem;
+  }
+}
+
+[class$=toolbar-headertext],
+.bbui-skin-webshell .bbui-pages-section-container .x-toolbar-cell > .bbui-pages-section-tbarcaption {
+  color: $dark-grey !important;
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  font-family: 'Roboto', Arial, sans-serif !important;
+}
+
+a.bbui-pages-banner {
+  margin-top: 0 !important;
+  img {
+    display: none;
+  }
+}
+
+.bbui-skin-webshell .bbui-pages-actionpanel .bbui-pages-shortcutseparator, .bbui-forms-fieldset-row > img[height="4"] {
+  display: none;
+}
+
+a.bbui-pages-banner:after {
+  content: "";
+  background-image: url(https://www.blackbaud.com/ResourcePackages/Talon/assets/dist/images/blackbaud-logo.svg);
+  background-size: contain;
+  width: 100px;
+  height: 32px;
+  display: block;
+  background-repeat: no-repeat;
+  margin: 10px ​5px;
+  background-position: center center;
+}
+
+.bbui-skin-webshell {
+  .bbui-pages-summary, .bbui-pages-tabpanel-body, .bbui-pages-taskbuttoncontainer-wrapper {
+    box-shadow: none;
+  }
+}
+.bbui-skin-webshell {
+  .x-tab-panel .x-tab-strip {
+    li {
+      &.x-tab-strip-active {
+        background: $secondary;
+        border-top: 0;
+        border-right: 0;
+        .x-tab-strip-text {
+          color: $white !important;
+        }
+      }
+      border-top: 0;
+      background: $light-grey;
+      .x-tab-strip-text {
+        color: $dark-grey;
+        font-size: 13px;
+        padding: 4px;
+      }
+    }
+    border-left: 0;
+  }
+  .bbui-pages-pagesection-withchildtabs .bbui-pages-tabpanel > .x-tab-panel-header {
+    .x-tab-strip-wrap {
+      background-image: none;
+      background-color: $mid-grey;
+    }
+    .x-tab-strip li {
+      background-image: none;
+      height: auto !important;
+    }
+    .x-tab-right {
+      background: none;
+      border-top: 0;
+      border-right: 1px solid shade($mid-grey,25%);
+      background-color: $mid-grey;
+      border-bottom: 0;
+      height: auto;
+      color: $white;
+    }
+    .x-tab-strip li {
+      span.x-tab-strip-text {
+        color: $dark-grey;
+      }
+      &.x-tab-strip-active .x-tab-right {
+        background-color: $white !important;
+
+        .x-tab-strip-text {
+          color: $dark-grey !important;
+        }
+      }
+    }
+  }
+}
+
+.bbui-skin-webshell h2.bbui-pages-header span {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 30px;
+    color: $black;
+}
+.bbui-forms-summarytile-caption {
+  font-size: 12px !important;
+  padding: 0px !important;
+  display: block;
+}
+
+a.bbui-forms-fieldmapping-disabled {
+  color: $black !important;
+}
+
+.bbui-skin-webshell .bbui-pages-maincontainer .x-column-inner {
+  .bbui-forms-summarytile a, .bbui-pages-section-container a {
+    color: $secondary;
+  }
+}
+
+.x-tab-strip-top .x-tab-strip-active .x-tab-right {
+  margin-bottom: 0;
+}
+
+.bbui-pages-header .x-btn td {
+  background-image: none !important;
+}
+
+.bbui-skin-webshell .bbui-pages-pervasivesearchcontainer-search-menubutton-wrapper {
+  border: 0;
+}
+
+.bbui-pages-header button.x-btn-text {
+  font-size: 12px !important;
+}
+
+.bbui-skin-webshell {
+  .bbui-pages-pervasivesearchcontainer-search-searchbox {
+    height: 32px !important;
+    background-image: none;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid $light-grey;
+  }
+  .bbui-pages-pervasivesearchcontainer-search-menubutton {
+    background: $light-grey;
+    margin-right: -2px;
+    padding-right: 10px;
+    padding-left: 4px;
+    border: 1px solid $light-grey;
+    height: 32px;
+    box-sizing: border-box;
+  }
+  .bbui-pages-pervasivesearchcontainer-search-gobutton-wrapper {
+    border: 0;
+    background: none;
+    position: relative;
+    right: 25px;
+    top: 5px;
+    margin-right: -25px;
+  }
+  .bbui-pages-pervasivesearchcontainer-separator, .bbui-pages-header-shelldesigner-separator {
+    display: none;
+  }
+  .bbui-pages-summary, .bbui-pages-taskbuttoncontainer-wrapper {
+    border: 0;
+    padding: 10px;
+    border-radius: $radius;
+  }
+  .bbui-pages-tabpanel-body {
+      border-radius: 0 0 $radius $radius;
+  }
+  .bbui-pages-pagesection {
+    border: 0;
+  }
+}
+
+.bbui-pages-section-separator {
+  display: none !important;
+}
+
+.bbui-skin-webshell {
+  .bbui-pages-maincontainer, .bbui-pages-summarycontainer, .bbui-pages-contentcontainer {
+    background-color: $lightest-grey;
+  }
+  .bbui-pages-section-container-filter {
+    &.x-toolbar, .x-toolbar {
+      box-shadow: none;
+      border: 0;
+      background-color: tint($primary,80%);
+      @include l-gradient(left, (tint($primary,80%) 0%, tint($primary,80%), tint($primary,90%)));
+
+
+    }
+  }
+}
+
+::placeholder, ::-moz-placeholder, ::-webkit-input-placeholder, ::-ms-placeholder {
+  font-style: normal !important;
+  color: tint($dark-grey, 25%) !important;
+}
+.x-form-text, textarea.x-form-field {
+  background: white;
+  border: 1px solid $light-grey !important;
+}
+.x-form-field-wrap .x-form-trigger {
+    background-image: url(./../../../../extjs/ext-3.4.0/resources/images/default/button/arrow.gif);
+    border: 1px solid $light-grey;
+    height: 20px;
+    background-color: $lightest-grey;
+    background-position: 50% 50%;
+    border-left: 0;
+    &:focus, &:hover {
+      background-color: $light-grey;
+    }
+}
+.bbui-skin-webshell {
+  .x-window [class*=_editorButton] .x-btn .x-btn-text {
+      padding: 3px;
+      border-radius: 0;
+      margin: 0 0 0 -6px;
+      height: 22px;
+      border: 1px solid $secondary;
+  }
+
+  .x-form-field-wrap .x-form-trigger {
+      background-color: $secondary;
+      border-color: $secondary;
+      background-image: url(./../../../../bbui/assets/skins/webshell/images/s-arrow-noline-white.gif);
+      width: 20px;
+      margin-left: -1px;
+      &:hover, &:focus {
+        background-color: shade($secondary, 50%);
+        border-color: shade($secondary, 50%);
+      }
+  }
+
+  .x-window-tc {
+    .x-tool {
+      position: relative;
+      background-image: none;
+      margin-top: 2px;
+      margin-right: 5px;
+      margin-left: 5px;
+      height: 24px;
+      font-size: 20px;
+      font-weight: normal !important;
+      width: 20px;
+      &:before {
+        font-family: "Fontawesome";
+        color: $white;
+        content: "";
+        transition: color 150ms ease-in-out;
+      }
+      &:hover:before {
+        color: shade($secondary, 50%);
+      }
+      &.x-tool-close {
+        &:before {
+          content: "\f00d";
+        }
+      }
+      &.x-tool-maximize {
+        &:before {
+          content: "\f2d0";
+        }
+      }
+      &.x-tool-restore {
+        &:before {
+          content: "\f2d1";
+        }
+      }
+
+      // &:before, &:after {
+      //   content: "";
+      //   display: block;
+      //   width: 2px;
+      //   height: 15px;
+      //   background: $white;
+      //   transform-origin: center center;
+      //   position: absolute;
+      //   top: 50%;
+      //   right: 50%;
+      //   transition: all 150ms ease-in-out;
+      //   margin-top: -7.5px
+      // }
+      // &:before{
+      //       transform: rotate(45deg);
+      // }
+      // &:after {
+      //     transform: rotate(-45deg);
+      // }
+      // &:hover {
+      //   &:before, &:after {
+      //     background: $black;
+      //   }
+      // }
+    }
+  }
+}
+
+div#splash-login-expired {
+    background: $tertiary-red;
+    color: tint($tertiary-red,90%);
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: normal;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.bbui-skin-webshell .bbui-pages-maincontainer .x-column-inner a {
+  color: $secondary;
+  &:visited {
+    color: $secondary;
+  }
+  &:hover, &:focus {
+    color: shade($secondary,25%);
+  }
+}
+
+.bbui-skin-webshell {
+  .x-grid3-hd-row td, .x-grid3-row td, .x-grid3-summary-row td {
+    line-height: 1.5;
+    font-size: 12px;
+  }
+
+  .bbui-pages-header-search, .bbui-pages-pervasivesearchcontainer-calendarbutton {
+      margin-top: 5px;
+  }
+}
+
+.header-table .header-column {
+    background: $lightest-grey !important;
+}
+
+.cell-border {
+    border-width: 0 !important;
+}
+
+.no-records {
+    padding: 5px;
+}
+
+.no-records a {
+    color: $mid-grey !important;
+}
+
+.header-table .header-column label {
+    color: $dark-grey;
+}
+
+.bbui-skin-webshell .x-toolbar-layout-ct  .x-btn button {
+    font-size: inherit;
+    margin: 0;
+}
+
+.bbui-pages-header .x-toolbar tr.x-toolbar-extras-row button {
+    height: 16px !important;
+    margin-top: 5px;
+}
+
+.bbui-skin-webshell .bbui-pages-navbar .x-toolbar-more.x-btn-over {
+    background: transparent;
+}
+
+
+.x-window-tl {
+  @include l-gradient(left, ($primary 0%, $gradient-mid 50%, $secondary 100%));
+
+    border: 0 !important;
+    padding: 3px 0 3px 6px;
+}
+
+.bbui-skin-webshell .x-window-header-text {
+    color: $white;
+    font-weight: normal;
+    font-size: 18px;
+    padding: 2px 6px;
+}
+.bbui-skin-webshell .bbui-pages-section-container {
+    margin: 25px 15px;
+}
+.bbui-skin-webshell .x-window-bwrap {
+    background: $lightest-grey !important;
+}
+
+.bbui-skin-webshell .bbui-dialog-body {
+    box-shadow: none;
+    background: white;
+    border: 1px solid $light-grey;
+}
+
+.bbui-skin-webshell .x-window {
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    border-radius: $radius;
+    overflow: hidden;
+}
+
+.bbui-skin-webshell .bbui-forms-formcontainer label {
+    font-size: 12px;
+}
+
+.bbui-skin-webshell .x-form-text-required {
+    background: tint($secondary, 90%);
+}
+
+.x-window {
+  .x-btn.x-btn-noicon * {
+      background-image: none !important;
+  }
+}
+.x-toolbar .x-btn-over tr > td {
+    background-image:  none;
+}
+.x-window .x-btn.x-btn-noicon .x-btn-text {
+  color: $white;
+  background: $secondary;
+  padding: 6px 22px;
+  height: auto;
+  box-sizing: border-box;
+  font-size: 14px;
+  vertical-align: middle;
+  border-radius: $radius;
+  &:focus, &:hover, &:active {
+    background-color: shade($secondary,25%);
+  }
+}
+table.bbui-searchlists-searchcontainer-parameterbuttons .x-btn-text {
+    min-width: 90px;
+    font-size: 14px !important;
+}
+.x-window .x-toolbar-ct .x-btn.bbui-buttons-primary .x-btn-text,
+.x-window .x-btn.x-btn-noicon.bbui-buttons-primary .x-btn-text {
+  background: $primary;
+  &:focus, &:hover, &:active {
+    background-color: shade($primary,25%);
+  }
+}
+
+.bbui-skin-webshell .bbui-pages-header-shelldesigner-button td.x-btn-mc {
+    background: transparent;
+    border-radius: 100% !important;
+    box-shadow: 0 0 0 0 transparent;
+    transition: all 150ms ease-in-out;
+}
+.bbui-skin-webshell .bbui-pages-header-shelldesigner-button.x-btn-pressed td.x-btn-mc {
+    box-shadow: 0 0 3px 1px $white;
+}
+
+.bbui-skin-webshell .bbui-dialog .bbui-forms-tabs-main .x-tab-panel>.x-tab-panel-bwrap>.x-tab-panel-body>.x-panel>.x-panel-bwrap>.x-panel-body, .bbui-skin-webshell .bbui-dialog-msgbox-details-panel {
+    box-shadow: none;
+}
+
+
+.bbui-skin-webshell .ext-el-mask, .blockUI.blockOverlay {
+    background-color: $black !important;
+}
+
+
+.bbui-skin-webshell .bbui-pages-section-datalist-detailform {
+    box-shadow: none;
+}
+
+.bbui-skin-webshell .x-grid3-row-selected, .bbui-skin-webshell .x-tree-node .x-tree-selected {
+    background-color: tint($primary, 80%) !important;
+}
+
+.bbui-skin-webshell .bbui-pages-section-container .x-toolbar.bbui-datalist-row-toolbar {
+    background: tint($secondary, 70%) ;
+    border: 1px solid tint($secondary, 60%);
+}
+
+
+.bbui-skin-webshell .bbui-wait-bar {
+    background-image: none;
+    font-size: 0;
+    text-indent: 0;
+    padding: 0;
+      height: 50px;
+  width: 50px;
+  -webkit-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+  position: relative;
+}
+
+
+.bbui-skin-webshell .bbui-wait-bar::before,
+.bbui-skin-webshell .bbui-wait-bar::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  opacity: 0.9;
+}
+
+.bbui-skin-webshell .bbui-wait-bar::before {
+  border-top-color: $primary;
+  -webkit-animation: 2.5s spin linear infinite;
+  animation: 2.5s spin linear infinite;
+}
+
+.bbui-skin-webshell .bbui-wait-bar::after {
+  border-top-color: $secondary;
+  -webkit-animation: spin 1.2s linear infinite;
+  animation: spin 1.2s linear infinite;
+}
+
+
+.bbui-skin-webshell .ext-el-mask-msg,
+.bbui-skin-webshell .bbui-mask-msg {
+  background: none;
+  box-shadow: none;
+  font-size: 0;
+  border: 0;
+  padding: 0;
+  height: 150px;
+  width: 150px;
+  -webkit-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+  position: relative;
+  margin-top: -75px !important;
+  margin-left: -75px !important;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    opacity: 0.9;
+  }
+
+  &::before {
+    border-top-color: $primary;
+    -webkit-animation: 2.5s spin linear infinite;
+    animation: 2.5s spin linear infinite;
+  }
+
+   &::after {
+    border-top-color: $secondary;
+    -webkit-animation: spin 1.2s linear infinite;
+    animation: spin 1.2s linear infinite;
+  }
+
+
+}
+
+@keyframes spin {
+  from {
+      -webkit-transform: rotate(0deg);
+       transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+         transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+/*** LOGIN SCREEN ***/
+
+
+#splash-login, #splash-login-forgot, #splash-login-remindersent {
+    width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#splash-spacer {
+    display: none;
+}
+
+div#splash-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: none;
+    @include r-gradient(($secondary 0%, $gradient-mid 0%, $primary 100%));
+    border: 0;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    min-height: 100vh;
+
+    div#splash-login {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      &:before {
+          content: "";
+          display: block;
+          background-image: url(https://www.blackbaud.com/ResourcePackages/Talon/assets/dist/images/blackbaud-logo.svg);
+          height: 60px;
+          background-size: contain;
+          width: 220px;
+          background-repeat: no-repeat;
+      }
+      div#splash-login-button {
+          position: relative;
+          bottom: 0;
+          right: 0;
+          margin-top: 20px;
+          width: 300px;
+          > table {
+           width: 100% !important;
+         }
+      }
+
+      #splash-login-button button, #splash-login-forgot-cancel button, #splash-login-forgot-continue button, #splash-login-reset-continue button {
+          background: $dark-grey !important;
+          color: $white !important;
+          font-size: 18px !important;
+          display: block !important;
+          height: auto !important;
+          width: auto !important;
+          padding: 8px 24px !important;
+          border-radius: $radius !important;
+          margin: 0 auto !important;
+      }
+
+      #splash-login-username, #splash-login-password, #splash-login-forgot-email {
+          width: 100% !important;
+          border: 1px solid $light-grey;
+          background: $white;
+          font-size: 20px;
+          padding: 8px 12px;
+          margin-bottom: 15px;
+          margin-top: 3px;
+          color: $dark-grey !important;
+          box-sizing: border-box;
+          height: auto;
+          border-radius: $radius;
+      }
+
+    }
+
+    .x-btn-tl, .x-btn-tr, .x-btn-tc, .x-btn-ml, .x-btn-mr, .x-btn-bl, .x-btn-br, .x-btn-bc {
+        height: 0;
+        width: 0;
+    }
+
+    .x-btn-tr i, .x-btn-tl i, .x-btn-br i, .x-btn-bl i {
+        height: 0;
+    }
+
+    .x-btn-tr i, .x-btn-tl i, .x-btn-mr i, .x-btn-ml i, .x-btn-br i, .x-btn-bl i {
+        width: 0;
+    }
+
+
+    .x-btn-tl,
+    .x-btn-tr,
+    .x-btn-tc,
+    .x-btn-ml,
+    .x-btn-mr,
+    .x-btn-mc,
+    .x-btn-bl,
+    .x-btn-br,
+    .x-btn-bc {
+        background-image: none !important;
+    }
+
+}
+table.splash-login-table, table.splash-login-table tbody, table.splash-login-table tr, table.splash-login-table td {
+    display: block;
+    width: 100%;
+    position: relative;
+    clear: both;
+    float: left;
+}
+
+table.splash-login-table {
+  width: 300px;
+  height: auto;
+  input:-internal-autofill-selected {
+    box-shadow: inset 0 0 0 100px white;
+    color: $dark-grey !important;
+  }
+  > tbody > tr:nth-child(3) {
+      text-align: center;
+  }
+  label {
+      font-size: 14px;
+      width: 100%;
+      margin-bottom: 2px;
+      margin-top: 5px;
+      color: $white;
+  }
+}
+#splash-login-denied, #splash-login-lockedout, #splash-login-expired, #splash-login-inactive, #splash-login-error,
+#splash-login-forgot-invalidemail, #splash-login-forgot-senderror, #splash-login-reset-error, #splash-login-reset-passwordmismatch,
+#splash-login-passwordreset {
+    background: #fe8b8b;
+    width: 300px;
+    padding: 10px;
+    margin-top: 10px;
+    color: $white;
+    font-weight: normal;
+    border-radius: $radius;
+    box-sizing: border-box;
+    border: 1px solid #fc7878;
+    height: auto;
+    font-size: 14px;
+    text-align: center;
+}
+
+#splash-message, #splash-message-error {
+    top: 0 !important;
+    left: 0 !important;
+    background: none !important;
+    background-image: none !important;
+    font-size: 0 !important;
+    text-indent: 0 !important;
+    padding: 0 !important;
+    height: 150px !important;
+    width: 150px !important;
+    -webkit-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+    position: relative !important;
+}
+#splash-login-logout {
+  background: tint($tertiary-green,25%);
+  width: 300px;
+  padding: 10px;
+  margin-top: 10px;
+  color: $white;
+  font-weight: normal;
+  border-radius: $radius;
+  box-sizing: border-box;
+  border: 1px solid $tertiary-green;
+  height: auto;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+#splash-message::before, #splash-message-error::before,
+#splash-message::after, #splash-message-error::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  opacity: 0.9;
+}
+
+#splash-message::before, #splash-message-error::before {
+  border-top-color: $white;
+  -webkit-animation: 2.5s spin linear infinite;
+  animation: 2.5s spin linear infinite;
+}
+
+#splash-message::after, #splash-message-error::after {
+  border-top-color: $lightest-grey;
+  -webkit-animation: spin 1.2s linear infinite;
+  animation: spin 1.2s linear infinite;
+}
+
+
+/**** HELP ***/
+.bbui-skin-webshell .bbui-pages-helppanel .bbui-pages-helpbutton {
+    background-image: none;
+    text-decoration: none;
+    height: 30px;
+    width: 30px;
+    background: $dark-grey;
+    text-align: center;
+    padding: 5px;
+    top: 3px;
+    border-radius: 20px 0 0 20px;
+    &:hover:after {
+      color: $secondary;
+    }
+}
+.bbui-skin-webshell .bbui-pages-helppanel .bbui-pages-helpbutton:after {
+   content: "\f059";
+   color: $lightest-grey;
+   font-size: 30px;
+   font-family: "Fontawesome";
+   text-decoration: none;
+   border: 0;
+   transition: color 150ms ease-in-out;
+}
+
+
+.bbui-skin-webshell .bbui-pages-helppanel .bbui-pages-helppanelbody {
+    box-shadow: none;
+    border-left: 0;
+    width: 583px;
+    left: 40px;
+}
+
+.bbui-skin-webshell .bbui-pages-helppanel .bbui-pages-helppanellinkbar {
+    box-shadow: none;
+    border-left: 0;
+    width: 583px;
+    left: 40px;
+}
+
+.bbui-skin-webshell .bbui-pages-helppanel .bbui-pages-helppanelheader {
+    border-top: 0px;
+    height: 35px;
+    left: 40px;
+}
+
+.bbui-skin-webshell .bbui-pages-helppanel .bbui-pages-helpiframe {
+    width: 583px;
+}
+
+.bbui-skin-webshell .bbui-pages-helppanel .bbui-pages-helppanelheader,
+.bbui-skin-webshell .bbui-pages-helppanel .bbui-pages-helppanellinkbar,
+.bbui-skin-webshell .bbui-pages-helppanel .bbui-pages-helppanelbody {
+    box-shadow: 0 0 4px -2px $dark-grey;
+}
+
+.bbui-skin-webshell .bbui-pages-helppanel {
+    top: 113px !important;
+}
+
+/**** ICONS ***/
+.bbui-skin-webshell {
+  .bbui-pages-pervasivesearchcontainer-new-menubutton-icon:after {
+      content: "\f055";
+      position: absolute;
+      font-family: fontawesome;
+      left: 0;
+      top: 0;
+      font-size: 16px;
+      color: $white;
+  }
+  .bbui-pages-pervasivesearchcontainer-new-menubutton-icon {
+    color: $white;
+  }
+    table.bbui-pages-pervasivesearchcontainer-new-menubutton {
+      margin-top: 5px;
+      //background: rgba(255, 255, 255, 0.50);
+  }
+
+  .bbui-pages-pervasivesearchcontainer-new-menubutton-icon {
+      position: relative;
+      background-image: none !important;
+  }
+  .bbui-pages-header-usernamebutton {
+    color: $white;
+  }
+  .bbui-pages-header-right  .bbui-pages-header-usernamebutton .x-btn-arrow  button {
+    color: $white !important;
+    .bbui-pages-header-username {
+      font-weight: normal;
+    }
+  }
+  .bbui-pages-pervasivesearchcontainer-search-gobutton:after {
+      content: "\f002";
+      position: absolute;
+      font-family: fontawesome;
+      left: 0;
+      top: 0;
+      font-size: 16px;
+      color: $mid-grey;
+      line-height: 20px;
+  }
+
+  .bbui-pages-pervasivesearchcontainer-search-gobutton {
+      position: relative;
+      background-image: none !important;
+  }
+
+}
+.bbui-skin-webshell .bbui-pages-section-container-filter .x-small-editor .x-form-field-wrap .x-form-trigger {
+  height: 20px;
+}
+
+.bbui-skin-webshell .bbui-forms-formcontainer h3, .bbui-skin-webshell .bbui-forms-extensions-afterparent h2, .bbui-skin-webshell .bbui-forms-extensions-tab h2 {
+  font-weight: normal;
+  color: $primary;
+}
+
+.bbui-skin-webshell .x-form-field-wrap .x-form-trigger.bbui-forms-generic-trigger.bbui-forms-generic-trigger-withimage {
+    background-color: $secondary;
+    border-color: $secondary;
+    background-image: none;
+    height: 20px;
+    margin-left: 1px;
+    &:hover, &:focus {
+      background-color: shade($secondary, 50%);
+      border-color: shade($secondary, 50%);
+    }
+}
+
+.bbui-skin-webshell .x-form-field-wrap .x-form-trigger.bbui-forms-generic-trigger.bbui-forms-generic-trigger-withimage img {
+    filter: brightness(4) grayscale(1);
+}
+
+.x-form-twin-triggers {
+    > * {
+        width: 18px !important;
+        text-align: center;
+    }
+}
+
+.x-form-field-wrap {
+    overflow: visible !important;
+}
+
+
+.bbui-searchlists-searchcontainer-newbutton {
+    background-image: none !important;
+}
+
+.bbui-searchlists-searchcontainer-newbutton:before {
+    content: "\f055";
+    font-family: fontawesome;
+    margin-right: 10px;
+    top: 0;
+    font-size: 16px;
+    line-height: 14px;
+}
+
+.bbui-skin-webshell .x-btn-tl, .bbui-skin-webshell .x-btn-tr, .bbui-skin-webshell .x-btn-tc, .bbui-skin-webshell .x-btn-ml, .bbui-skin-webshell .x-btn-mr, .bbui-skin-webshell .x-btn-mc, .bbui-skin-webshell .x-btn-bl, .bbui-skin-webshell .x-btn-br, .bbui-skin-webshell .x-btn-bc {
+    background-image: none;
+}
+
+.x-menu-floating {
+    background-image: none;
+    border: 1px solid $light-grey;
+    background-color: $white;
+}
+
+a.x-menu-item {
+    padding: 5px 16px;
+}
+
+.ext-strict .x-menu-item-icon {
+    display: none;
+}
+
+.x-menu-item-active {
+    background-image: none;
+    border-color: transparent;
+    background-color: $lightest-grey;
+    padding: 1px;
+    border: 0;
+}
+
+.x-menu-list {
+    padding: 0;
+}
+
+.x-menu-item-active a.x-menu-item {
+    border: 0;
+}
+
+.x-grid3-header {
+    background-image: none;
+    border-bottom: 1px solid  $light-grey;
+    padding-top: 0;
+}
+
+/*div#ext-gen725 {}*/
+
+.x-grid3-header-offset {
+    padding-left: 0;
+}
+
+td.x-grid3-hd-over .x-grid3-hd-inner, td.sort-desc .x-grid3-hd-inner, td.sort-asc .x-grid3-hd-inner, td.x-grid3-hd-menu-open .x-grid3-hd-inner {
+    background-image: none;
+    background-color:  $light-grey;
+}
+
+td.x-grid3-hd-over, td.sort-desc, td.sort-asc, td.x-grid3-hd-menu-open {
+    border-left-color: $light-grey;
+    border-right-color:  $light-grey;
+}
+
+.bbui-skin-webshell .x-window-footer .bbui-dialogs-helplink {
+    background-image: none;
+    padding-left: 0;
+    color:  shade($mid-grey,25%);
+    font-weight: 600;
+    padding-left: 7px;
+    display: inline-block;
+    transition: color 150ms ease-in-out;
+    &:before {
+        content: "\f059";
+        font-size: 16px;
+        font-family: "Fontawesome";
+        text-decoration: none;
+        border: 0;
+        transition: color 150ms ease-in-out;
+        margin-right: 4px;
+        color: inherit;
+    }
+    &:hover, &:focus {
+      color: $primary;
+      text-decoration: none;
+    }
+}
+
+.bbui-skin-webshell .bbui-forms-collectiongrid .x-grid3-cell-over .bbui-grid-celltrigger-dropdown {
+    background-color: $secondary;
+    border-color: $secondary;
+    background-image: url(./../../../../bbui/assets/skins/webshell/images/s-arrow-noline-white.gif) !important;
+    width: 18px !important;
+    background-position: 40% 50% !important;
+    height: 20px;
+    margin-right: 5px;
+}
+.bbui-grid-celltrigger.bbui-grid-celltrigger-search, .bbui-grid-celltrigger.bbui-grid-celltrigger-date {
+    background-color: $secondary;
+    background-repeat: no-repeat;
+    width: 19px !important;
+    height: 21px !important;
+    border: 0 !important;
+    margin-right: 2px;
+}
+
+.x-form-search-trigger, .x-grid3-cell-over .bbui-grid-celltrigger-search {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACGElEQVQ4jaWUv2vWVxjFP8+XEOQlBCkldAghtCoOJTh3FofiH5AuBZ0cFRwUsjg7OtilUKH/QREnLR3tZBySLiUQkJZYtSZqjJrz6fDe/Gi+eYOl504Xnufcc54ft0R6kClgBjgOdMC6ugqsVVcf+gn/yt07SQbqvHpPXUmyqW6pT9T76lV1Qkaf/WTT6vdJXqomMclWkq2du7qp/pTky1GEJWIcALeq6mIT/qf6oKoWgQAn1XPAbFUBPAC+oVg73LLOJ3nZVP2e5Kw6eaAUX6k/N7XbSa6pXd+yTiW55xB/JDk7yk6SWXWlxS6rJw7GdMBMVZ1WaTZ/HdXAqloFflQBpoAzB2M64BPgM+BdVS1SrI8ciSLAw6p6A0wC0z3CpqyrKtSMJNtDWlynjvUIq+pVVT0HxqvqC2QwkmpYolPAAHhTVb0ud8CqutTqcg6YO0Ldp8CFpm5NfdzXn4y1Ddhsw3s/yXSSvZHQTp1Sb6vbrct3kowfvik6qd5tgSZZUW8kOa9+rV5WF/eRqS6og6NWb079ZSepqX2dZEPdbvddJHmqXlKPHUq4z9ZCG9pn6vtGttE26I66kORpe2Cjqd8lrd73Nezk5wyHdlodq6q/1EfAUlWNAd8CN9WJqvobuA78QPH2iI/oiKPj6uUkL5r95SRzIr3B/CgU74zftY25AvwGww3rW/4vkGPAKXUdWK2u8v8ID8E/v4yYFkYoS6IAAAAASUVORK5CYII=) !important;
+    background-position: 60% 50% !important;
+    background-size: 14px 14px !important;
+}
+
+.x-form-date-trigger, .x-grid3-cell-over .bbui-grid-celltrigger-date {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACDUlEQVQ4ja2VsWuTYRDGf89HCB9FpIQgoZSSSUKmIh0kk6MUZwcHBWd3cXJwcpLi1Ekcnbr7B4iD1EFQFLXoZLU4OYQQ7nHIfembNJP2MuTuvbvnfe+5995PxpTicFfSFQDbh6p0curkErCdvjeq9Jtl8fLPfmL7l+1j23ulLyKe5vqx7UdncjFl8Lrtvu2PEXE3Im5FxJHtfkT08/9brt+z/TbXL5aArSxzADy2vSVpQ9LU9kTShu0DSdhGUg+YAFPgMnAAfMbcR3wFZoDADnADqGxPJVWSWkBb0jZAAwq0JFXAWvI5sP1CaAGwyiCAlu0HQDRApUh6CLSLTcrcGWAm/QFeZWkD25+A7xk3tP0+u1tluS8z9+qZLkfEbdsfbHdtdyNi3/ZmY9t+XuibtvcjorGPbN9caEoefdrcOVlj4AQxzl3HiJPUa2A8v5+eUbNQckqNGWZZHUlDnIDQaXxAbbsjq4ltlTzPASVdAHZT79u+LmmS7i1gN/ltp39XEpLqlRxGxLtiWvZs14W9X+j1wgTZX0oOq6LL5yJlyWuYUZo9YFRw2MOMbCNUAz2HR9nM9koOgRrmxHdtD4BJJq1LGmZiG+gyu5vkRJ1K8nC+HOaM/pMs58oYh68BzyStF2VMi7g2s1dmTlU+Itj+KekO4nUJWEvaSW7OnKB4vlYd8gdwiGYbavkT8L/yFwQS13YojwEtAAAAAElFTkSuQmCC) !important;
+    background-position: 60% 50% !important;
+    background-size: 16px 16px !important;
+}
+
+.x-item-disabled .x-form-trigger-over {
+    background-position: 60% 50% !important;
+}
+.bbui-forms-new-trigger {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACSUlEQVQ4jZ2UP4tUVxiHn98wDIvIIMsisixbRgmpFgsLqxRBCCJKCsEqX0BLwS6E4AewFgkiGEKKFLG0kFQqC4KKsRFlWXQTRcZhdzPOnifNuePd2dkUvpfDOdz7nuf87nn/RGSmyYJ6OEkf6AIjYKCup5PB7E2QaaDF+SRfq2eTrKhLSebUAfAKuA/8luRPwuYMIa1Hl9Qb6hvVUoqNlVKasaO+UH9SD7mbQBu2WEp5oO40oDpvqR/Uf9sHqB9LKb+o/T3AUsq8el3dmVLzVr1WSrmo3lS3pqHqFbW3W6F+1/7NlsJH6kr1ObWPzxP1RAPs1GieAQ5PIpU0y1LHrnWSiU+SL4BvkR5At6bGcbVxfAesqeMkz9XNEIAB8FhdT9IDloEmpVaqoLUucBBYrCeOgNvAdWAMbNdUocIuVcCcejnJufptqXLoAj3gAIA6SvIXYbWqopkJw5CnnxI4zUEAB9VuyKQCNoF+kp56NGYFKOp2kleETaSvLifpAj11uXXfwyTjRuFQXa/30QPOAyfVkuSZ+kPIM+DLJD8CC0AvyfKkOHQtyRCgm2RDfQgcqyfOA/OtKM7VfX3gK/VI860GcpxkFdgA6BD+AX5PssFe69QB0FE7bVidnwN/EEbNBpLcBe4kKVPOS+r3Fi8CF6pKWik2TnILWJ1ImGoMD5rya9mkltsvSykf1V9n1vIU9Gf1b/e3HfWletUZ3Wa/fviNerpW0GINzJBWPwTuzeqHe4At8EKSIzRJm4zUQZLXhPczN/0f8HPtP3u9aPnYTmzzAAAAAElFTkSuQmCC) !important;
+    background-position: 60% 50% !important;
+    background-size: 14px 14px !important;
+    background-color: $tertiary-green !important;
+    border-color: $tertiary-green !important;
+    &:focus, &:hover {
+      background-color: shade($tertiary-green, 25%) !important;
+      border-color: shade($tertiary-green, 25%) !important;
+    }
+}
+
+.bbui-forms-edit-trigger {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAByUlEQVQ4jZWVMWgUURRF7xuGICIpLFJZWC6WwSJIEAtZUgRRWCzEIljZxlLsUllYiJWIiJW19TZCSBGsJCxkUZEQUkhQ0BhFlr3HYv/odxIms/fxGIaZuf/e997/EwhNBVQC5yLih6SvCjl/XEzFZQpJ1yW9kPRIUueYBVsGFEDP9kcmGAF923P5e23JSqADvLI9sk3Kse2+7Q5QtCOcKLsJrNnuAn3+xwh4BpxFqDyhAYWknqSHkmZTrkk6AyxEhCSVkuYkzTTXEGZsrwA7wKbt58BhUnM5KR0B74CrzZYnNleAXdsbwBPgW7L4O913gZfAleam/KvZDrBh+ymwD2C7qtsB8MD2+fr3R2wCt4FPtjeTkv28A7bHwFZu83jCibI7wG5S9jizmWNQt3mUEArbvUS2nmx+qeatsmt7aHu5acwqm7dsvwc+A+vp+pcIGAMD28u2y0ZC2/PAHvAauJuaQY1wq8lmXeGi7UNgyfapbPYqDG0vtSGrFC6m/fkWuA+cBu4Bv4AhcA1otJlHGRECyoi4KOmnpA/ADUnbEbGq0JtpjjjZvmT7IA1rlQPb3baq8ghgVtKF2jrfJW3XT+M2CDTlL+AE/AGKv02nQp+4SwAAAABJRU5ErkJggg==) !important;
+    background-position: 60% 50% !important;
+    background-size: 14px 14px !important;
+}
+
+.x-form-trigger {
+    margin-right: 2px !important;
+
+}
+
+.x-date-picker .x-btn button {
+    font-size: 12px !important;
+    margin: 0;
+}
+
+.x-date-middle, .x-date-left, .x-date-right {
+    background-image: none;
+    background: $primary;
+}
+
+.x-date-inner th {
+    background-image: none;
+    background-color: $dark-grey;
+    color: white;
+}
+
+.x-date-bottom, .x-date-mp-btns {
+    background-color: $lightest-grey;
+    background-image: none;
+    border-top: 1px solid $light-grey;
+}
+
+.x-date-inner a, td.x-date-mp-month a, td.x-date-mp-year a {
+    color: $black !important;
+}
+
+.x-date-inner .x-date-selected a,
+td.x-date-mp-sel a {
+    border-radius: $radius;
+    box-sizing: border-box;
+    text-align: center;
+    color: $white !important;
+    background: $secondary !important;
+    border: 0;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+
+.x-date-inner .x-date-today a {
+    border-radius: $radius;
+    box-sizing: border-box;
+    text-align: center;
+    border: 0;
+    background-color: $light-grey;
+    vertical-align: middle;
+}
+
+.x-date-inner .x-date-prevday a, .x-date-inner .x-date-nextday a {
+    color: $mid-grey !important;
+}
+
+.x-date-mp-btns button {
+    border: 0;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+
+.x-window .x-window-body .x-btn.x-btn-noicon .x-btn-small .x-btn-text {
+    font-size: 11px;
+    padding: 4px 7px;
+    margin: 0;
+}
+
+tbody.x-btn-small.x-btn-icon-small-left .x-btn-text {
+    margin: 0;
+}
+
+.bbui-skin-webshell .bbui-forms-guidedexperience>.x-tab-panel>.x-tab-panel-header>.x-tab-strip-wrap {
+    background-image: none;
+}
+
+.bbui-skin-webshell .bbui-forms-guidedexperience>.x-tab-panel>.x-tab-panel-header>.x-tab-strip-wrap>.x-tab-strip-top li.x-tab-strip-active {
+    background-image: none;
+    background: $secondary !important;
+}
+
+.bbui-forms-guidedexperience .x-tab-strip li {
+    background: transparent !important;
+}
+
+
+.bbui-skin-webshell .x-window {
+  .bbui-valuestyles-moveup-imageonly button {
+    background-image: url('./../../../../bbui/assets/skins/webshell/images/up.png') !important;
+    background-color: transparent !important;
+    background-repeat: no-repeat !important;
+  }
+  .bbui-valuestyles-movedown-imageonly button {
+    background-color: transparent  !important;
+    background-repeat: no-repeat !important;
+    background-image: url('./../../../../bbui/assets/skins/webshell/images/down.png') !important;
+  }
+  .bbui-valuestyles-moveleft-imageonly button {
+    background: Transparent url('./../../../../bbui/assets/skins/webshell/images/left.png') no-repeat scroll 2px 2px !important;
+    background-image:  url('./../../../../bbui/assets/skins/webshell/images/left.png') !important;
+  }
+  .bbui-valuestyles-moveleftdouble-imageonly button {
+    background: Transparent url('./../../../../bbui/assets/skins/webshell/images/leftdouble.png') no-repeat scroll 0 2px !important;
+    background-image: url('./../../../../bbui/assets/skins/webshell/images/leftdouble.png') !important;
+  }
+  a.bbui-valuestyles-moveleft-imageonly,
+  span.bbui-valuestyles-moveleft-imageonly {
+    background-image: url('./../../../../bbui/assets/skins/webshell/images/left.png') !important;
+  }
+
+  a.bbui-valuestyles-moveleftdouble-imageonly,
+  span.bbui-valuestyles-moveleftdouble-imageonly {
+    background-image: url('./../../../../bbui/assets/skins/webshell/images/leftdouble.png') !important;
+  }
+
+  .bbui-valuestyles-moveright-imageonly button {
+    background: Transparent url('./../../../../bbui/assets/skins/webshell/images/right.png') no-repeat scroll 3px 2px !important;
+    background-image:  url('./../../../../bbui/assets/skins/webshell/images/right.png') !important;
+  }
+
+  .bbui-valuestyles-moverightdouble-imageonly button {
+    background: Transparent url('./../../../../bbui/assets/skins/webshell/images/rightdouble.png') no-repeat scroll 1px 2px !important;
+    background-image:  url('./../../../../bbui/assets/skins/webshell/images/rightdouble.png') !important;
+  }
+
+  a.bbui-valuestyles-moveright-imageonly,
+  span.bbui-valuestyles-moveright-imageonly {
+    background-image: url('./../../../../bbui/assets/skins/webshell/images/right.png') !important;
+  }
+
+  a.bbui-valuestyles-moverightdouble-imageonly,
+  span.bbui-valuestyles-moverightdouble-imageonly {
+    background-image: url('./../../../../bbui/assets/skins/webshell/images/rightdouble.png') !important;
+  }
+}
+
+
+div[id$="_RecurringGiftStatusUpdateBusinessProcessAddForm"] .bbui-valuestyles-custom-imageandtext {
+    font-size: 11px;
+    height: auto !important;
+}
+
+div[id$="_RecurringGiftStatusUpdateBusinessProcessAddForm"] .bbui-valuestyles-custom-imageandtext + br {
+    display: none;
+}
+
+div[class$="_TIPGRADIENT"] {
+
+  @include l-gradient(right, ($primary 0%, $gradient-mid 50%, $secondary 100%));
+    margin-top: 5px;
+    color: $white;
+    border-radius: $radius;
+}
+
+span[id$="_GENERAL_caption"] span[id$="_caption"] {
+    background: $secondary;
+    font-weight: normal;
+    padding: 10px;
+    box-sizing: border-box;
+    height: auto;
+    border-radius: $radius;
+    width: 780px;
+}
+div[class$="_TIPGRADIENT"] span[id$="_caption"] {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 0;
+    width: auto;
+    padding: 0;
+    background: none;
+}
+span[id$=APPLYTOPAST_THEN_caption] {
+    background: none;
+    width: auto;
+    padding: 0;
+}
+
+div[class$="_TIPGRADIENT"] span[class*="_TIP"] {
+    height: 40px;
+    line-height: 40px;
+}
+table[class$="_Background"] {
+    background-color: tint($primary,80%);
+}
+.bbui-skin-webshell .bbui-pages-header-contextlinks {top: 0;margin-top: 10px;}
+
+.bbui-batchform {
+  ul.x-tab-strip-top {
+      background-image: none !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      border: 0 !important;
+  }
+
+  .x-tab-panel-header, .x-tab-panel-footer {
+      border: 0 !important;
+  }
+
+  .x-toolbar {
+      background-color: $lightest-grey !important;
+      background-image: none !important;
+      padding: 0 2px !important;
+      border: 0 !important;
+      margin: 0 !important;
+  }
+
+  .x-tab-strip-wrap {
+      margin-left: 5px !important;
+      margin-bottom: 2px !important;
+  }
+
+  .bbui-skin-webshell .bbui-pages-section-container .x-toolbar-cell > .xtb-text, .bbui-skin-webshell .x-toolbar-cell > td, .bbui-skin-webshell .x-toolbar-cell > span, .bbui-skin-webshell .x-toolbar-cell > input, .bbui-skin-webshell .x-toolbar-cell > div, .bbui-skin-webshell .x-toolbar-cell > select, .bbui-skin-webshell .x-toolbar-cell > label {
+      font-family: $font-family; 
+  }
+
+  table.x-toolbar-ct {
+      border: 0 !important;
+  }
+
+  .bbui-skin-webshell .bbui-dialog .bbui-forms-tabs-main .x-tab-panel > .x-tab-panel-bwrap > .x-tab-panel-body-top {
+      border-bottom: 0 !important;
+  }
+
+  .x-panel-body-noheader, .x-panel-mc .x-panel-body {
+      border-top: 0 !important;
+  }
+
+  .x-toolbar-cell .x-btn-group {
+      border-radius: 0 !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      margin-left: 2px !important;
+      border-radius: 9px !important;
+      overflow: hidden !important;
+  }
+
+  .x-btn-group-tl, .x-btn-group-tr, .x-btn-group-tc {
+      background-image: none !important;
+      background: $light-grey !important;
+  }
+
+
+  .x-btn-group-ml, .x-btn-group-mr, .x-btn-group-mc {
+      background-image: none !important;
+      background: $white !important;
+  }
+
+
+  .x-panel-nofooter {
+      display: none !important;
+  }
+  .bbui-collapsed-title {
+      margin: 4px;
+      display: block;
+  }
+  .x-layout-collapsed {
+      height: 22px !important;
+  }
+  td.x-grid3-row, td.x-grid3-col, td.x-grid3-cell {
+      box-sizing: border-box !important;
+      line-height: 1.3 !important;
+  }
+
+
+    .x-grid3-header-offset > table .x-grid3-cell-last {
+        width: auto !important;
+    }
+
+  .bbui-forms-collectiongrid .x-grid3-header .x-grid3-hd-row .x-grid3-hd-cell-selected,
+  .bbui-forms-collectiongrid .x-grid3-row-cell-selected .x-grid3-td-expander,
+  .bbui-forms-collectiongrid .x-grid3-row-cell-selected .x-grid3-td-numberer {
+      background-color: tint($primary,80%);
+      background-image: none;
+
+  }
+
+  .bbui-forms-collectiongrid .x-grid3-body .x-grid3-row-selected-active,
+  .bbui-forms-collectiongrid .x-grid3-row .x-grid3-cell-selected-anchor {
+      background-color: tint($primary,80%) !important;
+      border: 1px solid $primary !important;
+  }
+  .x-tab-panel-header, .x-tab-panel-footer {
+    background-color: $light-grey;
+  }
+}
+
+
+.bbui-forms-formcontainer .bbui-batch-panel .x-grid3-hd-row td {
+ display: inline-block;
+}
+.bbui-skin-webshell .x-window .x-panel-body .x-tab-panel .x-tab-strip li.x-tab-strip-active .x-tab-strip-text {
+    color: $primary !important;
+}
+.bbui-pages-pagesection-inline {
+  .x-grid-panel,
+  .x-panel-bwrap > div,
+  td.x-toolbar-left {
+      max-width: 100% !important;
+      width: auto !important;
+  }
+}
+
+.bbui-query-container .x-btn.x-btn-noicon .x-btn-text {
+    background: none;
+    text-transform: uppercase;
+    padding: 2px 2px 0 !important;
+    color: $black;
+}
+
+.bbui-query-container .bbui-forms-tabs-main .x-btn.x-btn-noicon .x-btn-text {
+    background: $primary;
+    text-transform: uppercase;
+    padding: 5px !important;
+    color: $white;
+    &:hover, &:focus, &:active {
+      background: $secondary;
+      color: $white;
+    }
+}
+
+
+
+.bbui-query-container .x-btn.x-btn-noicon .x-btn-text:hover {
+    background: none;
+}
+
+.bbui-skin-webshell .bbui-pages-maincontainer.bbui-pages-maincontainer-actionbarhidden > div:before {
+    display: none;
+}
+
+.bbui-pages-header-right .x-btn-arrow button {
+    padding-bottom: 0 !important;
+    color: $black !important;
+}
+
+.bbui-mask-msg-cancel button {
+    opacity: 0;
+    z-index: 1000000000;
+    cursor: not-allowed !important;
+    position: absolute;
+    height:100% !important;
+    width:100% !important;
+    margin-top: 0 !important;
+    border-radius: 100% !important;
+}
+
+.bbui-mask-msg-cancel {
+    margin-top: 0 !important;
+}
+
+.bbui-mask-msg-cancel button {
+    opacity: 0;
+    z-index: 1000000000;
+    cursor: not-allowed !important;
+    position: absolute;
+    height:100% !important;
+    width:100% !important;
+    margin-top: 0 !important;
+    border-radius: 100% !important;
+}
+
+.bbui-mask-msg-cancel {
+    margin-top: 0 !important;
+}
+
+
+.mce-ico {
+    font-family: 'tinymce',Arial !important;
+}
+
+div#splash-content {
+    box-shadow: none;
+}
+
+div#splash-login-forgot {
+    width: 300px;
+    height: auto;
+    top: 25%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    left: auto;
+    right: auto;
+}
+
+
+a#splash-login-forgot-link {
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    color: $tertiary-red;
+}
+
+
+.bbui-skin-webshell .bbui-pages-header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bbui-pages-header-left {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.bbui-pages-header-title .bbui-pages-pervasivesearchcontainer-new-menubutton .x-btn-mc em.x-btn-arrow,
+.bbui-pages-header-title .bbui-pages-header-usernamebutton .x-btn-mc em.x-btn-arrow {
+    background-image: url(./../../../../bbui/assets/skins/webshell/images/s-arrow-noline-white.gif);
+}
+
+
+.bbui-skin-webshell .x-window .bbui-forms-fieldset-column {
+    //max-width: 50%;
+    box-sizing: border-box;
+    padding-right: 6px;
+}
+
+.x-window .x-panel-bwrap > .x-panel-body {
+    min-height: 100% !important;
+}
+
+
+div[id$=_ProspectSideProfileViewForm] {
+    color: $white;
+    width: 155px !important;
+}
+
+div[id$=PICTURE_value] {
+    width: 70px !important;
+    height: 80px !important;
+}
+div[id$=PICTURE_value] img {
+    max-width: 100%;
+    height: auto;
+}
+
+div[id$=_ProspectSideProfileViewForm] a {
+    color: $primary !important;
+}
+.bbui-skin-webshell .bbui-pages-maincontainer > .x-column-inner {
+    top: 0 !important;
+    position: relative !important;
+}
+
+
+.x-window .x-btn-text-icon {
+    display: block;
+    background:  $primary;
+    color: $white;
+    padding: 5px 10px;
+    border-radius: $radius;
+}
+.x-window .x-btn-text-icon:focus-within, .x-window .x-btn-text-icon:hover {
+    background-color: shade($primary,25%);
+}
+
+.x-window  .x-btn-text-icon .x-btn-text {
+    display: block;
+    width: 100%;
+    color: $white;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+.x-window .x-btn-group-body .x-btn-text-icon {
+  padding: 0;
+  background: none;
+  color: $dark-grey;
+  border-radius: 0;
+  .x-btn-text {
+    color: $dark-grey;
+    font-size: inherit;
+    text-align: left;
+   margin-left: 2px;
+   margin-right: 2px;
+  }
+  &:hover, &:focus-within {
+    background: none;
+    color: $dark-grey;
+  }
+}
+
+.x-window .x-btn-text-icon > tbody, .x-window .x-btn-text-icon > tbody > tr {
+    display: block;
+    width: 100%;
+}
+
+.x-window .x-btn-text-icon .x-btn-ml,
+.x-window .x-btn-text-icon .x-btn-mr {
+    display: none;
+}
+
+.x-window .x-btn-text-icon .x-btn-mc {
+    display: block;
+    width: 100%;
+}
+
+
+table.bbui-searchlists-searchcontainer-parameterbuttons .x-btn-text.bbui-searchlists-searchcontainer-newbutton {
+    padding-left: 0 !important;
+}
+.bbui-skin-webshell .bbui-searchlists-searchcontainer-parameterbuttons .x-btn {
+  max-width: 70px;
+}
+.bbui-skin-webshell .bbui-forms-summarytile a:hover.bbui-forms-summarytile-addaction {
+  background: Transparent url(./../../../../catalogimages/Blackbaud/AppFx/Browser/ImageLibrary/smallnewitem.png) no-repeat scroll;
+}
+.incomingbox, .x-toolbar-cell {
+ .x-btn-text-icon  {
+    padding: 0;
+    background: none;
+    border-radius: 0;
+  }
+  .x-btn-text-icon:hover,
+  .x-btn-text-icon:focus-within {
+      background: none;
+  }
+  .x-btn-text-icon .x-btn-text {
+      color: $dark-grey;
+      font-size: 12px !important;
+      text-align: left;
+  }
+}
+
+ul.x-tab-strip-top {
+    background:  $lightest-grey;
+}
+
+.x-tab-panel-header, .x-tab-panel-footer {
+    background: $lightest-grey;
+    border: 0;
+    padding-bottom: 0;
+}
+
+.x-tab-panel-body {
+    border: 1px solid $white;
+}
+
+.bbui-skin-webshell .x-tab-panel .bbui-adhocquery-tabpanel-toolbar .x-toolbar {
+    background: transparent;
+    border: 0;
+}
+
+.bbui-skin-webshell .x-tab-panel .bbui-adhocquery-tabpanel-toolbar .x-toolbar .x-btn-text {
+    margin-right: 10px;
+}
+
+.bbui-skin-webshell .bbui-forms-formcontainer h3 {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.bbui-forms-fieldset-column[style="display: none;"]+.bbui-forms-fieldset-column {
+    max-width: none;
+}
+
+
+/*.bbui-pages-pervasivesearchcontainer-new-menubutton {
+  //display: none;
+}*/
+
+
+body.x-body-masked.bbui-skin-webshell .bbui-pages-centercontainer {
+    filter: grayscale(0.4);
+}
+
+body.bbui-skin-webshell .bbui-pages-centercontainer {
+    filter: grayscale(0);
+    transition: filter 1000ms ease;
+}
